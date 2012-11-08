@@ -10,6 +10,10 @@
 			var visitedEast = true
 			var visitedWest = true
 			
+			var inv_a = "";
+			var inv_b = "";
+			var inv_b = "";
+			
 			var currentLocation = 0
 			
 			function button_North(){
@@ -138,6 +142,22 @@
 				}
 			}
 			
+			function PutItemInInventory(item) {
+				if (checkEmpty(inv_a)) {
+					inv_a = item;
+				} else if (inv_b===" ") 
+					inv_b = item;
+				} 
+				
+				
+			function listInventory();
+				var div = ", ";
+				var invList = "";
+				if (inv_a !== "") {
+					invList = invList + inv_a + div //"Item, "
+				} 
+				if (inv_b !== "") {
+					invList = invList + inv_ b + div //"Item, other item, " 
 			
 		</script>
 	</head>
