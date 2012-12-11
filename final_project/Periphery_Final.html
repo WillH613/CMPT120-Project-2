@@ -1,0 +1,92 @@
+<!--
+-WILL HAMMER's FINAL PROJECT-
+-COMPUTER SCIENCE 10-
+-ALAN LABOUSEUR-
+-12/10/2012-
+!--> 
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="PHY_Navigation.js" type="text/Javascript"></script>
+		<script src="PHY_Inventory_Logic.js" type="text/Javascript"></script>
+		<script>
+		
+			function button_Go() {
+				var ta = document.getElementById("txtCommand"); 
+				var command = ta.value.toUpperCase(); 
+				switch(command)
+				{ 
+				case "N" : 
+					move(NORTH);
+					break;
+				case "S" : 
+					move(SOUTH);
+					break;
+				case "E" :
+					move(EAST);
+					break;
+				case "W" :
+					move(WEST);
+					break;
+				case "HELP" : //IT WORKS DONT TOUCH IT JUST DONT
+					Help();
+					updateText(msg);
+					break;
+				case "TAKE" :
+					TakeItem();
+					updateText(msg);
+					break;
+				case "I" :
+					displayInventory();
+					updateText(msg);
+					break;
+				case "ATTACK" :
+					attack();
+					break;
+				default:
+					msg="You pause, unsure of yourself. You peer around your unfamiliar settings and try and gather your thoughts (Please enter the commands N, S, E, W, n, s, e, w, TAKE, or I to proceed)"
+					updateText(msg);
+				}
+			}
+			
+			function updateText(msg){
+				msg = msg + " [" + currentLocation +"]"; 
+				var ta = document.getElementById("gameConsole");
+				ta.value = msg+"\n"+"\n"+ta.value;
+			}
+
+			
+		</script>
+	</head>
+
+	<body onload="initialize()">
+		<H2>Periphery</H2>
+		<p>
+			<i>"You wake suddenly from your nightmare... Images of fire and ash quickly fade from your vision as bright, cold light floods your retnas. You try and move but you find yourself stricken with a bout of sleep paralysis. <br>
+			You peer around your unfamiliar surroundings. It is cold. You struggle to think but your memories escape you. As your feeling returns to you, you get out of your bed. You move for the door and open it, only to face a gust of wind along with a rush of snow and ash. You shiver but force yourself to leave your shack..."</i>
+		</p>
+		<textarea id=gameConsole rows="20" cols="110">
+		</textarea>
+		<br>
+		Enter Command
+		<input type="text" id="txtCommand">
+		<input type="button" value="Go" onclick="button_Go();"> 
+		<br>
+		<input type="button" id="northbutton" value="Go North" onclick="move(NORTH);">
+		<input type="button" id="southbutton" value="Go South" onclick="move(SOUTH);">
+		<br>
+		<input type="button" id="eastbutton" value="Go East" onclick="move(EAST);">
+		<input type="button" id="westbutton" value="Go West" onclick="move(WEST);"> 
+		<br>
+		<input type="button" id="inventorybutton" value="Inventory" onclick="displayInventory()"
+		<br>
+		<H3>Score</H3>
+			<input type="button" value="Display Score" onclick="get_score()">
+			<br>/
+			<br>
+			<img src="game_map.png" alt="map" height="1000" width="600">
+			<br>
+			<a href= "mailto:William.Hammmer1@marist.edu">Email me I guess idkrite</a> 
+		</body>
+</html>
